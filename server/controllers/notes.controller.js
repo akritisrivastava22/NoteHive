@@ -5,14 +5,14 @@ export const getAllNotes = async(req,res) => {
 
     const allNotes = await Notes.find();
 
-    req.status(200).json({
+    res.status(200).json({
         success: true,
         allNotes
     })
         
     } catch (error) {
     
-    req.status(500).json({
+    res.status(500).json({
         success:false,
         message: error.message
     }) 
@@ -27,13 +27,13 @@ export const createNotes = async(req,res) => {
         description
     })
 
-    req.status(200).json({
+    res.status(200).json({
         success:true,
         message: "Note Created",
         notes
     })
     } catch (error) {
-        req.status(500).json({
+        res.status(500).json({
             success:false,
             message: error.message,
         })
@@ -41,6 +41,5 @@ export const createNotes = async(req,res) => {
 }
 
 export const deleteAllNotes = async(req,res) => {
-    
 
 }
