@@ -1,11 +1,13 @@
 import React from "react";
+import Notes from "./notes.js"
+import NewNote from "./newNote.js"
 
 const App = () => {
   return(
-      <div>
-      <h1 style={{textAlign: "center"}}>Hello World</h1>
-      
-      </div>
+      <>
+      <NewNote />
+      <Notes />
+      </>
   );
 }
 
