@@ -22,10 +22,11 @@ export const getAllNotes = async(req,res) => {
 export const createNotes = async(req,res) => {
     try {
     const {title, description} = req.body  ;
-    const notes = Notes.create({
+    const notes = await Notes.create({
         title,
         description
     })
+    console.log(title, description);
 
     res.status(200).json({
         success:true,
