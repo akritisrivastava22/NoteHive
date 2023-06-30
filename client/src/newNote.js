@@ -20,7 +20,6 @@ const NewNote = () => {
       };      
     return(
         <>
-
         {/* <button> Go To Notes </button> <br /> */}
         <form onSubmit={handleSubmit}>
         <input type="text" value={inputTitle} placeholder="Please enter your Notes Title"  onChange={(e) => setInputTitle(e.target.value)}  className="bg-black" /> <br/> 
