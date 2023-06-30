@@ -4,8 +4,6 @@ export const getAllNotes = async(req,res) => {
     try {
 
     const allNotes = await Notes.find();
-
-    
     res.status(200).json({
         success: true,
         allNotes
