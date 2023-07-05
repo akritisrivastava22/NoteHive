@@ -1,9 +1,10 @@
 import React, {useState} from "react"
 import axios from "axios"
 
-const NewNote = () => {
+const NewNote = (props) => {
     const [inputTitle, setInputTitle] = useState('');
     const [inputdescription, setInputDescription] = useState('');
+    // const [notes, setNotes] = useState(false);
     const handleSubmit = async (e) => {
         e.preventDefault();
       
@@ -14,6 +15,15 @@ const NewNote = () => {
           });
       
           console.log(response.data);
+          // setNotes(true)
+
+          props.notes.push(response.data.notes)
+          const updatedNotes = props.notes
+          console.log(updatedNotes);
+          props.setNotes([])
+
+          
+
         } catch (error) {
           console.error(error);
         }
@@ -26,7 +36,10 @@ const NewNote = () => {
         <textarea name="message" value={inputdescription} placeholder="Please enter your Notes Description"  onChange={(e) => setInputDescription(e.target.value)} rows="4" cols="50"></textarea> <br/>
         <button> ADD NOTE</button>
         </form>
+
+        {/* {notes === true ? console.log("New Note Created"):console.log("You can create New Note")} */}
         </>
+        
     )
 }
 export default NewNote;
