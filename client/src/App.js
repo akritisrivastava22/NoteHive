@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from "react"
-import Notes from "./notes.js"
+import Notes from "./HandleNotes.js"
 import NewNote from "./NewNote.js"
 import axios from "axios";
 
@@ -16,6 +16,8 @@ const App = () => {
         const response = await axios.get('http://localhost:4000/api/getallnotes')
         console.log(response.data)
         setNotes(response.data.allNotes);
+        <button className="bg-black">EDIT</button>
+        
       } catch (error) {
         console.error(error);
       }

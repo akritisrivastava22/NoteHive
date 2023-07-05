@@ -4,7 +4,7 @@ import axios from "axios"
 const NewNote = (props) => {
     const [inputTitle, setInputTitle] = useState('');
     const [inputdescription, setInputDescription] = useState('');
-    // const [notes, setNotes] = useState(false);
+    const [noteCreated, setNoteCreated] = useState();
     const handleSubmit = async (e) => {
         e.preventDefault();
       
@@ -15,15 +15,14 @@ const NewNote = (props) => {
           });
       
           console.log(response.data);
-          // setNotes(true)
-
-          props.notes.push(response.data.notes)
-          const updatedNotes = props.notes
-          console.log(updatedNotes);
-          props.setNotes([])
-
           
 
+          const updatedNotes = [...props.notes, response.data.notes];
+          props.setNotes(updatedNotes);
+
+          setInputTitle('')
+          setInputDescription('')
+          setNoteCreated(true)
         } catch (error) {
           console.error(error);
         }
@@ -37,7 +36,7 @@ const NewNote = (props) => {
         <button> ADD NOTE</button>
         </form>
 
-        {/* {notes === true ? console.log("New Note Created"):console.log("You can create New Note")} */}
+        {noteCreated && <h1>Note Created successfully</h1>}
         </>
         
     )
