@@ -16,7 +16,6 @@ const NewNote = (props) => {
       
           console.log(response.data);
           
-
           const updatedNotes = [...props.notes, response.data.notes];
           props.setNotes(updatedNotes);
 
