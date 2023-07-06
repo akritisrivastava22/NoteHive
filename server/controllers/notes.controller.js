@@ -67,9 +67,9 @@ export const updateNotes = async(req,res) => {
 
 export const deleteAllNotes = async(req,res) => {
     try {
-    const {id: notesId} = req.params
-    let noteToDelete = await Notes.findById(notesId)
-    noteToDelete.remove();
+    const {id: notesId} = req.params;
+    let noteToDelete = await Notes.findByIdAndDelete(notesId)
+    // await noteToDelete.remove();
 
     res.status(200).json({
         success: true,

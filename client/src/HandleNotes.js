@@ -1,11 +1,13 @@
 import React , {useState} from "react";
 import axios from "axios"
 
-const HandleNotes = ({notes}) => {
+const HandleNotes = ({notes, getAllNotes}) => {
   const [editNote, setEditNote] = useState('');
   const [updatedTitle, setUpdatedTitle] = useState('');
   const [updatedDescription, setUpdatedDescription] = useState('');
 
+
+  //to find the note which is needed to be updated and setting up new title and description
   const handleEdit =  (notesId) => {
     setEditNote(notesId)
     const findNote = notes.find((note) => note._id === notesId)
@@ -13,6 +15,7 @@ const HandleNotes = ({notes}) => {
     setUpdatedDescription(findNote.description)
   }
 
+  // to 
   const handleCancelEdit = () => {
     setEditNote('')
     setUpdatedTitle('')
@@ -27,9 +30,22 @@ const HandleNotes = ({notes}) => {
       });
 
       console.log("Note updated",response.data);
+      getAllNotes();
       handleCancelEdit();
     } catch (error) {
       console.error("Unable to save edited note", error)
+    }
+  }
+
+
+  const handleDelete = async (id) => {
+    try {
+
+      const response = await axios.delete(`http://localhost:4000/api/delete/${id}`)
+      console.log(response.data);
+      getAllNotes();
+    } catch (error) {
+      console.error("Unable to delete note", error)
     }
   }
 
@@ -61,7 +77,7 @@ const HandleNotes = ({notes}) => {
                 <h3>{note.title}</h3>
                 <p>{note.description}</p>
                 <button onClick={() => handleEdit(note._id)}>Edit</button>
-                <button>Delete</button>
+                <button onClick ={() => handleDelete(note._id)}>Delete</button>
               </>
             )}
           </div>

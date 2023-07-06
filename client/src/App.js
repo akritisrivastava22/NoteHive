@@ -16,7 +16,7 @@ const App = () => {
         const response = await axios.get('http://localhost:4000/api/getallnotes')
         console.log(response.data)
         setNotes(response.data.allNotes);
-        <button className="bg-black">EDIT</button>
+        
         
       } catch (error) {
         console.error(error);
@@ -25,7 +25,7 @@ const App = () => {
   return(
       <>
       <NewNote notes={notes} setNotes={setNotes} />
-      <Notes notes= {notes} />
+      <Notes notes= {notes} getAllNotes= {getAllNotes}/>
       </>
   );
 }
