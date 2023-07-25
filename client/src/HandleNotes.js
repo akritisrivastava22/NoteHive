@@ -1,5 +1,6 @@
 import React , {useState} from "react";
-import axios from "axios"
+import axios from "axios";
+// import "./App.css";
 
 const HandleNotes = ({notes, getAllNotes}) => {
   const [editNote, setEditNote] = useState('');
@@ -51,7 +52,9 @@ const HandleNotes = ({notes, getAllNotes}) => {
 
     return(
         <>
-        <h1>ALL NOTES</h1>
+        <hr class="h-px bg-gray-200 border-0 mt-3 dark:bg-gray-700"/>
+        <h1 className="font-serif text-xl text-center pt-5 pb-4">ALL NOTES</h1>
+        <hr class="h-px bg-gray-200 border-0 dark:bg-gray-700"/>
         {notes.length === 0 ? (
         <h1>No Notes found</h1>
       ) : (
@@ -69,15 +72,15 @@ const HandleNotes = ({notes, getAllNotes}) => {
                   value={updatedDescription}
                   onChange={(e) => setUpdatedDescription(e.target.value)}
                 ></textarea>
-                <button onClick={() => handleSaveEdit(note._id)}>Save</button>
-                <button onClick={handleCancelEdit}>Cancel</button>
+                <button className="border-slate-950 border-4	" onClick={() => handleSaveEdit(note._id)}>Save</button>
+                <button className="border-slate-950 border-4	"  onClick={handleCancelEdit}>Cancel</button>
               </>
             ) : (
               <>
-                <h3>{note.title}</h3>
+                <h3 className="">{note.title}</h3>
                 <p>{note.description}</p>
-                <button onClick={() => handleEdit(note._id)}>Edit</button>
-                <button onClick ={() => handleDelete(note._id)}>Delete</button>
+                <button className="rounded-md bg-black px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-black/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black" onClick={() => handleEdit(note._id)} >Edit</button>
+                <button className="rounded-md bg-black px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-black/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black" onClick ={() => handleDelete(note._id)}>Delete</button>
               </>
             )}
           </div>
