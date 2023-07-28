@@ -54,11 +54,11 @@ const HandleNotes = ({ notes, getAllNotes }) => {
 
   return (
     <>
-      <hr class="h-px text-cyan-700	 border-0 mt-3 dark:bg-gray-700" />
+      <hr class="h-px text-cyan-400	mt-3 dark:bg-gray-700 " />
       <h1 className="font-serif text-xl text-center pt-5 pb-4">ALL NOTES</h1>
-      <hr class="h-px text-cyan-700	 border-0 dark:bg-gray-700" />
+      <hr class="h-px text-cyan-700	dark:bg-gray-700" />
       {notes.length === 0 ? (
-        <h1>No Notes found</h1>
+        <h1 className="font-serif text-xl text-center mt-10">No Notes Found !!</h1>
       ) : (
         <div>
           {notes.map((note) => (
@@ -79,13 +79,13 @@ const HandleNotes = ({ notes, getAllNotes }) => {
                     ></textarea>
                     <div className="text-center mt-3">
                       <button
-                        className="rounded-md bg-zinc-400	text-zinc-700	font-bold	 px-5 py-2 text-sm font-semibold text-white shadow-sm hover:bg-black/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+                        className="rounded-md bg-zinc-400	text-zinc-700	font-extrabold	 px-5 py-2 text-sm font-semibold text-white shadow-sm hover:bg-black/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
                         onClick={() => handleSaveEdit(note._id)}
                       >
                         Save
                       </button>
                       <button
-                        className="rounded-md ml-2 bg-zinc-400 text-zinc-700	font-bold px-4 py-2 text-sm font-semibold text-white shadow-sm hover:bg-black/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black	"
+                        className="rounded-md ml-2 bg-zinc-400 text-zinc-700	font-extrabold px-4 py-2 text-sm font-semibold text-white shadow-sm hover:bg-black/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black	"
                         onClick={handleCancelEdit}
                       >
                         Cancel
@@ -95,27 +95,27 @@ const HandleNotes = ({ notes, getAllNotes }) => {
                 </>
               ) : (
                 <>
-                {/* <div className="grid grid-cols-2 gap-1 mt-3 w-full"> */}
+                  {/* <div className="grid grid-cols-2 gap-1 mt-3 w-full"> */}
                   <div className="px-8">
-                <div className="mt-3  w-full rounded-md border border-amber-50	border-2 bg-transparent px-2  py-2 text-sm placeholder:text-gray-600 focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50">
-                  <h3 className="text-xl font-semibold">{note.title}</h3>
-                  <p className="text-lg">{note.description}</p>
-                  
-                  <button
-                    className="mt-2 rounded-md bg-zinc-400	text-zinc-700	font-bold px-3 py-1 text-sm font-semibold text-white shadow-sm hover:bg-black/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
-                    onClick={() => handleEdit(note._id)}
-                  >
-                    Edit
-                  </button>
-                  <button
-                    className="rounded-md ml-2 mt-2 bg-zinc-400	text-zinc-700 font-bold	 px-2 py-1 text-sm font-semibold text-white shadow-sm hover:bg-black/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
-                    onClick={() => handleDelete(note._id)}
-                  >
-                    Delete
-                  </button>
+                    <div className="mt-3  w-full rounded-md border border-amber-50	border-2 bg-transparent px-2  py-2 text-sm placeholder:text-gray-600 focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50">
+                      <h3 className="text-xl font-semibold">{note.title}</h3>
+                      <p className="text-lg">{note.description}</p>
+
+                      <button
+                        className="mt-2 rounded-md bg-zinc-400	text-zinc-700	font-extrabold px-3 py-1 text-sm font-semibold text-white shadow-sm hover:bg-black/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+                        onClick={() => handleEdit(note._id)}
+                      >
+                        Edit
+                      </button>
+                      <button
+                        className="rounded-md ml-2 mt-2 bg-zinc-400	text-zinc-700 font-extrabold	 px-2 py-1 text-sm font-semibold text-white shadow-sm hover:bg-black/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+                        onClick={() => handleDelete(note._id)}
+                      >
+                        Delete
+                      </button>
+                    </div>
                   </div>
-                  </div>
-                {/* </div> */}
+                  {/* </div> */}
                 </>
               )}
             </div>
